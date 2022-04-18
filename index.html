@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Dashboard</title>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" href="css/index.css">
+		<style>
+			.text-muted {
+				color: #fff;
+			}
+
+			.t_title {
+				width: 100%;
+				height: 100%;
+				text-align: center;
+				font-size: 2.5em;
+				line-height: 80px;
+				color: #fff;
+			}
+
+			#chart_map {
+				cursor: pointer;
+			}
+
+			.t_show {
+				position: absolute;
+				top: 0;
+				right: 0;
+				border-radius: 2px;
+				background: #2C58A6;
+				padding: 2px 5px;
+				color: #fff;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--header-->
+		<!-- <div class="header">
+			<div class="bg_header">
+				<div class="header_nav fl t_title">
+					Fish Market
+				</div>
+			</div>
+		</div> -->
+		<!--main-->
+		<div class="data_content">
+			<!-- <div class="data_time">
+            temp
+        </div> -->
+			<div class="data_main">
+				<!-- 左侧部分 -->
+				<div class="main_left fl ">
+					<!-- 左上图片 -->
+					<div style="height: 610px;">
+						<div class="pull-left" style="width: 40%;">
+							<!-- 图片 -->
+							<img src="images/img_top.png" style="width: 100%;height: 100%;padding-top: 50px;padding-left: 50px;padding-bottom: 50px;">
+							<!-- 表格 -->
+							<table class="table table-bordered">
+								<thead bgcolor="#2F9EFA">
+									<tr>
+										<th>Index</th>
+										<th>A_series</th>
+										<th>B_series</th>
+										<th>C_series</th>
+										<th>D_series</th>
+									</tr>
+								</thead>
+								<tbody class="text-muted">
+									<tr>
+										<td>Current Value</td>
+										<td>12220</td>
+										<td>5855</td>
+										<td>12920</td>
+										<td>14200</td>
+									</tr>
+									<tr>
+										<td>Year-on-year</td>
+										<td>22%</td>
+										<td>14%</td>
+										<td>26%</td>
+										<td>32%</td>
+									</tr>
+									<tr>
+										<td>Early period</td>
+										<td>10%</td>
+										<td>5%</td>
+										<td>12%</td>
+										<td>22%</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<!-- 四张 冰箱存储量 -->
+						<div class="pull-right" style="width: 60%; height: 600px;">
+							<div style="height: 35%;">
+								<div id="chart_5" class="echart pull-left" style="width: 50%;height: 200px;"></div>
+								<div id="chart_6" class="echart pull-right" style="width: 50%;height: 200px;"></div>
+							</div>
+							<div style="height: 35%;">
+								<div id="chart_7" class="echart pull-left" style="width: 50%;height: 200px;"></div>
+								<div id="chart_8" class="echart pull-right" style="width: 50%;height: 200px;"></div>
+							</div>
+							<!-- 表格 -->
+							<table class="table" style="height: 30%; width: ">
+								<tbody class="text-muted">
+									<tr  bgcolor="#16397d">
+										<td>1-A</td>
+										<td>1-B</td>
+										<td>2-A</td>
+										<td>2-B</td>
+									</tr>
+									<tr>
+										<td>1560</td>
+										<td>2660</td>
+										<td>1400</td>
+										<td>2700</td>
+									</tr>
+									<tr  bgcolor="#16397d">
+										<td>3-A</td>
+										<td>3-B</td>
+										<td>4-A</td>
+										<td>4-B</td>
+									</tr>
+									<tr>
+										<td>3665</td>
+										<td>4235</td>
+										<td>890</td>
+										<td>1400</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- 左下角 折线图 -->
+					<div class="left_2">
+						<!--左上边框-->
+						<div class="t_line_box">
+							<i class="t_l_line"></i>
+							<i class="l_t_line"></i>
+						</div>
+						<!--右上边框-->
+						<div class="t_line_box">
+							<i class="t_r_line"></i>
+							<i class="r_t_line"></i>
+						</div>
+						<!--左下边框-->
+						<div class="t_line_box">
+							<i class="l_b_line"></i>
+							<i class="b_l_line"></i>
+						</div>
+						<!--右下边框-->
+						<div class="t_line_box">
+							<i class="r_b_line"></i>
+							<i class="b_r_line"></i>
+						</div>
+						<div id="chart_4" class="chart t_btn9" style="width:100%;height: 260px;"></div>
+					</div>
+				</div>
+
+				<!-- 右侧部分 -->
+				<div class="main_right fr">
+					<div class="main_right" style="width:100%;height:610px;">
+						<!-- 地图 -->
+						<div style="height: 50%;">
+							<div class="main_title" style="width: 50%;">
+								<img src="images/t_3.png" alt="">&nbsp;Distribution of sales amount
+							</div>
+							<div id="chart_map" style="width:100%;height:610px;"></div>
+						</div>
+						<div style="height: 50%;">
+							<!-- Sales Volume -->
+							<div class="pull-left" style="width: 30%;">
+								<div class="main_title" style="width: 30%;">
+									<img src="images/t_4.png" alt="">&nbsp;Sales Volume
+								</div>
+								<div id="chart_3" class="echart t_btn7" style="width:100%;height: 280px;"></div>
+							</div>
+							<!-- User Statistics -->
+							<div class="pull-right" style="width: 70%;">
+								<div class="main_title" style="width: 30%;">
+									<img src="images/t_1.png" alt="">&nbsp;User Statistics
+								</div>
+								<div class="pull-left"
+									style="height: 230px; font-weight: bold; padding-top: 40px; padding-left: 5px;">
+									<li class="list-group-item"
+										style="background-color: #16397d; border-color: #16397d; color: #fff;">
+										Users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<span style="color: #fcce10;">256</span>
+										&nbsp;&nbsp;&nbsp;unit
+									</li>&nbsp;
+									<li class="list-group-item"
+										style="background-color: #16397d; border-color: #16397d; color: #fff;">
+										Market share&nbsp;&nbsp;
+										<span style="color: #fcce10;">26</span>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%
+									</li>&nbsp;
+									<li class="list-group-item"
+										style="background-color: #16397d; border-color: #16397d; color: #fff;">
+										Total sales&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<span style="color: #fcce10;">9163</span>
+										&nbsp;&nbsp;&nbsp;set
+									</li>&nbsp;
+									<li class="list-group-item"
+										style="background-color: #16397d; border-color: #16397d; color: #fff;">
+										Sales Amount <span style="color: #fcce10;">45195</span> 10M
+									</li>&nbsp;
+								</div>
+								<div id="chart_2" class="echart pull-right" style="width: 50%;height: 280px;"></div>
+							</div>
+						</div>
+					</div>
+					<!-- 右下角 Market Analysis -->
+					<div>
+						<!--左上边框-->
+						<div class="t_line_box">
+							<i class="t_l_line"></i>
+							<i class="l_t_line"></i>
+						</div>
+						<!--右上边框-->
+						<div class="t_line_box">
+							<i class="t_r_line"></i>
+							<i class="r_t_line"></i>
+						</div>
+						<!--左下边框-->
+						<div class="t_line_box">
+							<i class="l_b_line"></i>
+							<i class="b_l_line"></i>
+						</div>
+						<!--右下边框-->
+						<div class="t_line_box">
+							<i class="r_b_line"></i>
+							<i class="b_r_line"></i>
+						</div>
+						<div class="main_title" style="width: 220px;">
+							<img src="images/t_7.png" alt="">&nbsp;Market Analysis
+						</div>
+						<div id="chart_1" class="chart" style="width:100%;height: 280px;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-2.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/echarts.min.js"></script>
+	<script src="js/dataTool.js"></script>
+	<script src="js/index.js"></script>
+	<!-- <script src="js/china.js"></script> -->
+	<script src="js/Australia.js"></script>
+</html>
