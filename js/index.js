@@ -272,6 +272,14 @@ function echart_3() {
 		}
 	};
 	var option = {
+		title: {
+			text: 'Sales Volume',
+			x: 'center',
+			textStyle: {
+				color: '#FFFFFF',
+				// fontSize: '10'
+			}
+		},
 		tooltip: {
 			trigger: 'axis',
 			axisPointer: { // 坐标轴指示器，坐标轴触发有效
@@ -385,9 +393,9 @@ function echart_4() {
 				show: false
 			},
 			axisLine: {
-				show: false, //不显示坐标轴线
+				// show: false, //不显示坐标轴线
 				lineStyle: {
-					color: '#FFFFFF'
+					color: '#fff'
 				}
 			},
 		},
@@ -454,7 +462,7 @@ function echart_5() {
 
 	var option = {
 		title: {
-			text: 'Dasbate1',
+			text: 'Brew Storage1',
 			x: 'center',
 			textStyle: {
 				color: '#FFFFFF',
@@ -527,7 +535,7 @@ function echart_6() {
 
 	var option = {
 		title: {
-			text: 'Dasbate2',
+			text: 'Brew Storage2',
 			x: 'center',
 			textStyle: {
 				color: '#FFFFFF',
@@ -600,7 +608,7 @@ function echart_7() {
 
 	var option = {
 		title: {
-			text: 'Dasbate3',
+			text: 'Brew Storage3',
 			x: 'center',
 			textStyle: {
 				color: '#FFFFFF',
@@ -673,7 +681,7 @@ function echart_8() {
 
 	var option = {
 		title: {
-			text: 'Dasbate4',
+			text: 'Brew Storage4',
 			x: 'center',
 			textStyle: {
 				color: '#FFFFFF',
@@ -760,6 +768,7 @@ function echart_map() {
 		'Townsville': [146.8183, -19.2564],
 		'Ipswich': [152.7667, -27.6167],
 		'Cairns': [145.7703, -16.9303],
+		'Newsmy': [119.734, -20.358],
 	}
 
 	// 发射点数组
@@ -773,17 +782,17 @@ function echart_map() {
 			[{
 				name: 'Sydney'
 			}, {
+				name: 'Perth'
+			}],
+			[{
+				name: 'Sydney'
+			}, {
+				name: 'Newsmy'
+			}],
+			[{
+				name: 'Sydney'
+			}, {
 				name: 'Brisbane'
-			}],
-			[{
-				name: 'Sydney'
-			}, {
-				name: 'Cranbourne'
-			}],
-			[{
-				name: 'Sydney'
-			}, {
-				name: 'Canberra'
 			}],
 			[{
 				name: 'Sydney'
@@ -793,56 +802,29 @@ function echart_map() {
 		],
 		[
 			[{
-				name: 'Brisbane'
+				name: 'Newsmy'
 			}, {
-				name: 'Brisbane'
+				name: 'Newsmy'
 			}],
 			[{
-				name: 'Brisbane'
+				name: 'Newsmy'
 			}, {
 				name: 'Perth'
 			}],
 			[{
-				name: 'Brisbane'
-			}, {
-				name: 'Wollongong'
-			}],
-			[{
-				name: 'Brisbane'
-			}, {
-				name: 'Townsville'
-			}],
-			[{
-				name: 'Brisbane'
-			}, {
-				name: 'Canberra'
-			}],
-		],
-		[
-			[{
-				name: 'Melbourne'
-			}, {
-				name: 'Melbourne'
-			}],
-			[{
-				name: 'Melbourne'
-			}, {
-				name: 'Sydney'
-			}],
-			[{
-				name: 'Melbourne'
-			}, {
-				name: 'Brisbane'
-			}],
-			[{
-				name: 'Melbourne'
+				name: 'Newsmy'
 			}, {
 				name: 'Adelaide'
 			}],
 			[{
-				name: 'Melbourne'
+				name: 'Newsmy'
 			}, {
-				name: 'Canberra'
+				name: 'Townsville'
+			}],
+			[{
+				name: 'Newsmy'
+			}, {
+				name: 'Cairns'
 			}],
 		]
 	]
@@ -863,14 +845,14 @@ function echart_map() {
 		launchIndex = 0
 		arrIndex = 0
 	}
-
+	
 	// 数组遍历
 	let lineDataArr = []
-	lineDataArr.push(GZData[arrIndex])
+	// lineDataArr.push(GZData[arrIndex])
 
 	// // 自定义多个发射点（push多少个就会有多少个同时发射点）
-	// lineDataArr.push(GZData[0])
-	// lineDataArr.push(GZData[1])
+	lineDataArr.push(GZData[0])
+	lineDataArr.push(GZData[1])
 
 	// 处理线路所需要的数据格式data
 	let convertData = function(data) {
@@ -891,12 +873,12 @@ function echart_map() {
 		return res
 	}
 	// 发射点和线路颜色
-	let color = ['#46bee9', '#a6c84c', '#46bee9'] // 橙 墨绿 蓝
+	let color = ['#46bee9', '#a6c84c', '#fcce10'] // 橙 墨绿 蓝
 	let seriesData = []
 	lineDataArr.forEach(function(item, i) {
 		seriesData.push({ // 亮光发射效果
 			// name: item[0] + ' Top10',
-			name: 'Sydney',
+			name: '',
 			type: 'lines',
 			zlevel: 1,
 			effect: {
@@ -921,7 +903,7 @@ function echart_map() {
 			data: convertData(item)
 		}, { // 线路效果
 			// name: item[0] + ' Top10',
-			name: 'Brisbane',
+			name: '',
 			type: 'lines',
 			zlevel: 2,
 			effect: {
@@ -946,7 +928,7 @@ function echart_map() {
 			data: convertData(item)
 		}, { // 文字和地点涟漪效果
 			// name: item[0] + ' Top10',
-			name: 'Melbourne',
+			name: '',
 			type: 'effectScatter',
 			coordinateSystem: 'geo',
 			// geoIndex: 0,
@@ -962,13 +944,13 @@ function echart_map() {
 					// offset: [10, -4]
 				}
 			},
-			// label: { // 涟漪文字位置
-			//     normal: {
-			//         show: true,
-			//         position: 'right', 
-			//         formatter: '{b}'
-			//     }
-			// },
+			label: { // 涟漪文字位置
+			    normal: {
+			        show: true,
+			        position: 'right', 
+			        formatter: '{b}'
+			    }
+			},
 			symbolSize: 8,
 			// symbolOffset:[4, 4], // 标记相对于原本位置的偏移
 			itemStyle: { // 涟漪相关颜色
@@ -997,7 +979,9 @@ function echart_map() {
 		// 	}
 		// },
 		tooltip: {
-			trigger: 'item'
+			show: false,
+			trigger: 'item',
+			// formatter: '名称：{a}<br/>省份：{b}<br/>数值：{c}'
 		},
 		geo: {
 			map: '澳大利亚',
@@ -1020,11 +1004,15 @@ function echart_map() {
 		series: [
 			...seriesData, // 中国地图线路特效配置
 			{
-				// name: '', // 浮动框的标题（上面的formatter自定义了提示框数据，所以这里可不写）
+				name: 'Australia', // 浮动框的标题（上面的formatter自定义了提示框数据，所以这里可不写）
 				type: 'map',
 				geoIndex: 0,
 				label: {
-					show: true
+					show: false
+				},
+				itemStyle: {
+					normal: { label: { show: false } },//显示省份标签
+					emphasis: { label: { show: false } }//鼠标悬浮效果
 				},
 				// 这是需要配置地图上的某个地区的数据，根据后台的返回的数据进行拼接（下面是我定义的假数据）
 				data: [{
